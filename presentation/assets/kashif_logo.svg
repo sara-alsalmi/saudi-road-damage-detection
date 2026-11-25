@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+<rect x="0" y="0" width="120" height="120" rx="26" fill="#344B3B"/>
+<polygon points="34,104 86,104 62,40 58,40" fill="#5E7A63"/><polygon points="57.5,100.2 62.5,100.2 62.2,89.9 57.8,89.9" fill="#F3EFE5"/><polygon points="58.0,82.2 62.0,82.2 61.7,73.3 58.3,73.3" fill="#F3EFE5"/><polygon points="58.4,66.9 61.6,66.9 61.4,60.5 58.6,60.5" fill="#F3EFE5"/><polygon points="58.8,55.4 61.2,55.4 61.1,50.9 58.9,50.9" fill="#F3EFE5"/>
+<ellipse cx="68" cy="80" rx="7" ry="3" fill="#B5594C"/>
+<rect x="57" y="72" width="22" height="16" rx="2" fill="none" stroke="#FAF8F2" stroke-width="1.6" stroke-dasharray="3 2"/>
+<path d="M18 40 L18 18 L40 18" fill="none" stroke="#91A98A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M102 40 L102 18 L80 18" fill="none" stroke="#91A98A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 80 L18 102 L40 102" fill="none" stroke="#91A98A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M102 80 L102 102 L80 102" fill="none" stroke="#91A98A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

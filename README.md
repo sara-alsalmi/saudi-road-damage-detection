@@ -55,6 +55,18 @@ locate this damage automatically from road photos and videos.
   <img src="assets/yolo_detection.png" width="340" alt="YOLO pothole detection">
 </p>
 
+## Deployment
+
+The models are deployed in **Kashif**, a web app that shows each damage report with its type and location on a map.
+
+**Live demo:** https://fa11111-kashif.static.hf.space/index.html
+
+<p align="center">
+  <a href="https://fa11111-kashif.static.hf.space/index.html">
+    <img src="assets/kashif_website.jpg" width="800" alt="Kashif web app">
+  </a>
+</p>
+
 ## Project structure
 
 ```
@@ -65,6 +77,7 @@ locate this damage automatically from road photos and videos.
 │   └── yolo_cleaned/    yolo_training_cleaned
 ├── models/              cnn/, yolo/, yolo_cleaned/
 ├── videos/              input + annotated videos
+├── presentation/        project presentation (HTML slides)
 └── assets/              images for this README
 ```
 
