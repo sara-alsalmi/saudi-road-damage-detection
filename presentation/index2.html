@@ -633,6 +633,7 @@ body.portrait .end-sign h2 { font-size: 120px; }
 body.portrait .hud .scene { display: none; }
 body.portrait .hide-p { display: none !important; }
 .cta{background:none!important;box-shadow:none!important;padding:0!important;color:var(--lane)!important;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px}
+@media (hover: none) { html, body { cursor: pointer; } }
 </style>
 </head>
 <body>
@@ -1101,10 +1102,16 @@ const stage = document.getElementById('deckStage');
 const slides = [...document.querySelectorAll('.slide')];
 const W = () => document.body.classList.contains('portrait') ? 1080 : 1920;
 const H = () => document.body.classList.contains('portrait') ? 1920 : 1080;
+let ROT = false;
 function fit() {
-    document.body.classList.toggle('portrait', innerWidth / innerHeight < 0.8);
-    const f = Math.min(innerWidth / W(), innerHeight / H());
-    stage.style.transform = `translate(${(innerWidth - W() * f) / 2}px, ${(innerHeight - H() * f) / 2}px) scale(${f})`;
+    ROT = innerHeight > innerWidth * 1.15;
+    if (ROT) {
+        const f = Math.min(innerWidth / 1080, innerHeight / 1920);
+        stage.style.transform = `translate(${(innerWidth + 1080 * f) / 2}px, ${(innerHeight - 1920 * f) / 2}px) rotate(90deg) scale(${f})`;
+    } else {
+        const f = Math.min(innerWidth / 1920, innerHeight / 1080);
+        stage.style.transform = `translate(${(innerWidth - 1920 * f) / 2}px, ${(innerHeight - 1080 * f) / 2}px) scale(${f})`;
+    }
 }
 fit(); addEventListener('resize', fit);
 const toggleFs = () => { const d = document, el = d.documentElement;
@@ -1379,14 +1386,15 @@ addEventListener('wheel', e => { if (wlock) return; wlock = true; e.deltaY > 0 ?
 let x0 = null, y0 = null;
 addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
 addEventListener('touchend', e => {
-    if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if (x0 === null) return; let dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if (ROT) { const t = dx; dx = dy; dy = -t; }
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) (dx > 0 ? next() : prev());
     else if (Math.abs(dy) > 60) (dy < 0 ? next() : prev());
     x0 = null;
 });
 addEventListener('click', e => {
     if (e.target.closest('a, button, iframe, .thumbs, .blk, .st, .mtabs, .mtoggle, .cm, .reel, .aug, .chart, .laptop, .unit, .tlight, .vms-tabs')) return;
-    if (document.body.classList.contains('portrait') && e.clientX > innerWidth * 0.66) prev(); else next();
+    next();
 });
 addEventListener('contextmenu', e => e.preventDefault());
 
